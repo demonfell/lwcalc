@@ -168,6 +168,46 @@ print("Lone Wolf takes: damage_values[1] damage")
 print("Enemy takes: " + str(damage_values[0]) + " damage")
 print("Lone Wolf takes: " + str(damage_values[1]) + " damage")
 
+
+# Creating the loop
+
+
+
+# does not run 8/10 21:09 UTC
+while my_roll != 'quit':
+print("Enter Lone Wolf's current endurance points.")
+lw_endurance_start = int(input(prompt))
+print("Enter Lone Wolf's combat skill.")
+lw_cs = int(input(prompt))
+print("Enter enemy's endurance points.")
+op_endurance_start = int(input(prompt))
+print("Enter enemy's combat skill.")
+op_cs = int(input(prompt))
+round_count=0
+lw_endurance=lw_endurance_start
+op_endurance=op_endurance_start
+combat_ratio = lw_cs-op_cs
+print("Begin combat.")
+	while lw_endurance !=0 and op_endurance !=0:
+		print("Enter your roll.")
+		my_roll = int(input(prompt))
+		round_count+=1
+		if check_input(my_roll):
+				damage_values=(smalldct[combat_ratio][my_roll])
+				op_endurance=op_endurance-(damage_values[0])
+				lw_endurance=lw_endurance-(damage_values[1])
+				print("Enemy takes: " + str(damage_values[0]) + " damage =====> Enemy Endurance Points: " + str(op_endurance)
+				print("Lone Wolf takes: " + str(damage_values[1]) + " damage =====> Lone Wolf Endurance Points: " + str(lw_endurance)
+
+
+
+
+
+
+
+
+
+
 ### Code
 
 #define prompt - 
@@ -194,7 +234,7 @@ def check_input(current_roll):
     """
     if current_roll in valid_answers:
         return True
-    if not current_roll in valid_answers and current_guess != "quit"::
+    if not current_roll in valid_answers and current_guess != "quit":
         print("Valid roll values are numbers 1 - 10.")
         return True
 
