@@ -133,6 +133,41 @@ Out[52]: False
 In [53]: 11 in valid_answers
 Out[53]: False
 
+print("Enter Lone Wolf's current endurance points.")
+lw_endurance_start = int(input(prompt))
+
+print("Enter Lone Wolf's combat skill.")
+lw_cs = int(input(prompt))
+
+print("Enter enemy's endurance points.")
+op_endurance_start = int(input(prompt))
+
+print("Enter enemy's combat skill.")
+op_cs = int(input(prompt))
+
+
+In [66]: combat_ratio = lw_cs-op_cs
+
+In [67]: print(combat_ratio)
+-5
+
+print("Enter your roll.")
+my_roll = int(input(prompt))
+
+print(smalldct[combat_ratio][my_roll])
+(5, 4)
+
+#NO
+print("Enemy takes: " + damage_values[0] + " damage")
+print("Lone Wolf takes: " + damage_values[1] + " damage")
+
+#NO
+print("Enemy takes: damage_values[0] damage")
+print("Lone Wolf takes: damage_values[1] damage")
+
+print("Enemy takes: " + str(damage_values[0]) + " damage")
+print("Lone Wolf takes: " + str(damage_values[1]) + " damage")
+
 ### Code
 
 #define prompt - 
