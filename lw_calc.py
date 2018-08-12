@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
 
-#define prompt - 
-prompt = "\n  > "
-
-#module imports
-import random
-
 #define variables
 smalldct={}
 valid_answers=valid_answers=range(1,11)
 my_roll = ''
+prompt = "\n  > "
 
 #define functions
 def check_input(current_roll):
@@ -21,7 +16,7 @@ def check_input(current_roll):
     if not current_roll in valid_answers and current_roll != "quit":
         print("Valid roll values are numbers 1 - 10.")
 
-#define combat results table as dictionarty
+#define combat results table as dictionary
 smalldct = {-11:{1:(0,100),2:(0,100),3:(0,8),4:(0,8),5:(1,7),6:(2,6),7:(3,5),8:(4,4),9:(5,3),10:(6,0)}, 
 -9:{1:(0,100),2:(0,8),3:(0,7),4:(1,7),5:(2,6),6:(3,6),7:(4,5),8:(5,4),9:(6,3),10:(7,0)},
 -7:{1:(0,8),2:(0,7),3:(1,6),4:(2,6),5:(3,6),6:(4,5),7:(5,4),8:(6,3),9:(7,2),10:(8,0)},
@@ -54,9 +49,7 @@ while my_roll != 'quit':
     if combat_ratio > 0 and combat_ratio  % 2 == 0:                   
         combat_ratio-=1                                           
     elif combat_ratio < 0 and combat_ratio % 2 == 0:                  
-        combat_ratio+=1  
-    elif combat_ratio < 0 and combat_ratio % 2 == 0:    
-        combat_ratio+=1                                           
+        combat_ratio+=1                                             
     print("Begin combat.")                                            
     while True:                                                       
         print("Round " + str(round_count))  
