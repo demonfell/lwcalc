@@ -211,7 +211,7 @@ while my_roll != 'quit':
     op_endurance_start = int(input(prompt))                           
     print("Enter enemy's combat skill.")                              
     op_cs = int(input(prompt))                                        
-    round_count=0                                                     
+    round_count=1                                                     
     lw_endurance=lw_endurance_start                                   
     op_endurance=op_endurance_start                                   
     combat_ratio = lw_cs-op_cs                                        
@@ -224,11 +224,11 @@ while my_roll != 'quit':
         combat_ratio+=1                                           
     print("Begin combat.")                                            
     while True:                                                       
-        round_count+=1
         print("Round " + str(round_count))  
         print("Enter your roll.")                                     
-        my_roll = int(input(prompt))                                                                                
-        damage_values=(smalldct[combat_ratio][my_roll])
+        my_roll = int(input(prompt))
+        if check_input(my_roll):                                                                                
+            damage_values=(smalldct[combat_ratio][my_roll])
 #        if (damage_values[0]=100:             
 #            op_endurance=op_endurance-op_endurance
 #       else:
@@ -237,16 +237,20 @@ while my_roll != 'quit':
 #            lw_endurance=lw_endurance-lw_endurance
 #        else:
             lw_endurance=lw_endurance-(damage_values[1])         
-        if op_endurance <= 0:                       
-            print("Lone Wolf hath slain the enemy!")
-            break                                            
-        elif lw_endurance <=0:                                        
-            print("The enemy hath bested Lone Wolf!")                 
-            break                                                     
-        else:                                                         
-            print("Enemy takes: " + str(damage_values[0]) + " damage =====> Enemy Endurance Points:  " + str(op_endurance))                 
-            print("Lone Wolf takes: " + str(damage_values[1]) + " damage =====> Lone Wolf Endurance Points: " + str(lw_endurance))
-
+            if op_endurance <= 0:                     
+                print("Enemy takes: " + str(damage_values[0]) + " damage =====> Enemy Endurance Points:  " + str(op_endurance))                 
+                print("Lone Wolf takes: " + str(damage_values[1]) + " damage =====> Lone Wolf Endurance Points: " + str(lw_endurance))
+                print("Lone Wolf hath slain the enemy!")
+                break                                            
+            elif lw_endurance <=0:                                        
+                print("Enemy takes: " + str(damage_values[0]) + " damage =====> Enemy Endurance Points:  " + str(op_endurance))                 
+                print("Lone Wolf takes: " + str(damage_values[1]) + " damage =====> Lone Wolf Endurance Points: " + str(lw_endurance))
+                print("The enemy hath bested Lone Wolf!")                 
+                break                                                     
+            else:                                                         
+                print("Enemy takes: " + str(damage_values[0]) + " damage =====> Enemy Endurance Points:  " + str(op_endurance))                 
+                print("Lone Wolf takes: " + str(damage_values[1]) + " damage =====> Lone Wolf Endurance Points: " + str(lw_endurance))
+                round_count+=1
 
 
 
@@ -275,6 +279,6 @@ def check_input(current_roll):
     """
     if current_roll in valid_answers:
         return True
-    if not current_roll in valid_answers and current_guess != "quit":
+    if not current_roll in valid_answers and current_roll != "quit":
         print("Valid roll values are numbers 1 - 10.")
-        return True
+
