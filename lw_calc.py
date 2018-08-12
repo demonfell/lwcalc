@@ -52,7 +52,7 @@ while my_roll != 'quit':
             op_endurance=op_endurance-(damage_values[0])
             lw_endurance=lw_endurance-(damage_values[1])         
             if op_endurance <= 0:                     
-               print("Lone Wolf hath slain the enemy!")
+                print("Lone Wolf hath slain the enemy!")
                 break                                            
             elif lw_endurance <=0:                                        
                 print("The enemy hath bested Lone Wolf!")                 
